@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amed & Nesrine World ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="script.js"></script>
+</head>
+<body>
+
+    <h1>Bienvenue dans notre petit monde ✨</h1>
+
+    <div class="weather-container">
+        <div class="weather-card">
+            <h3>Météo Nesrine</h3>
+            <p>Niveau d'amour : <span id="text-nesrine">...</span>%</p>
+            <div class="progress-bar">
+                <div id="bar-nesrine" class="bar" style="width: 0%; background:#ff85a2"></div>
+            </div>
+            <input type="range" id="slider-nesrine" min="0" max="100" 
+                   oninput="localUpdate('nesrine', this.value)" 
+                   onchange="saveLoveLevel('nesrine', this.value)">
+        </div>
+
+        <div class="weather-card">
+            <h3>Météo Amed</h3>
+            <p>Niveau d'amour : <span id="text-amed">...</span>%</p>
+            <div class="progress-bar">
+                <div id="bar-amed" class="bar" style="width: 0%; background:#3b82f6"></div>
+            </div>
+            <input type="range" id="slider-amed" min="0" max="100" 
+                   oninput="localUpdate('amed', this.value)" 
+                   onchange="saveLoveLevel('amed', this.value)">
+        </div>
+    </div>
+
+    <div class="quiz-section">
+        <h2>Le Quiz du Love 💘</h2>
+        <div id="quiz-container">
+            <p id="quiz-question" class="question-text">Chargement...</p>
+            <input type="text" id="quiz-input" placeholder="Ta réponse ici...">
+            <button onclick="checkAnswer()">Valider</button>
+            <p id="quiz-feedback"></p>
+        </div>
+    </div>
+    
+    <div class="travel-section">
+        <h2>Notre Conquête du Monde 🌍</h2>
+        <div class="progress-container">
+            <div class="progress-label">Monde exploré : <span id="travel-percent">0</span>%</div>
+            <div class="progress-bar-global">
+                <div id="travel-fill" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <div id="map-wrapper">
+            <div id="map-container"></div>
+        </div>
+        
+        <div id="country-editor" class="hidden">
+            <h3 id="editor-title">Pays</h3>
+            <div class="tags-container" id="city-list"></div>
+            
+            <div class="add-city-box">
+                <input type="text" id="new-city" placeholder="Ajouter une ville (ex: Paris)">
+                <button onclick="addCity()" class="btn-add">+</button>
+            </div>
+            <button onclick="closeEditor()" class="btn-close">Fermer</button>
+        </div>
+    </div>
+
+</body>
+</html>
